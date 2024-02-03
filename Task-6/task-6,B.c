@@ -15,6 +15,7 @@ struct CFG
     char NonTerminals[100];
     char Start_Symbol;
 };
+
 int main(void)
 {
     struct Production productions[5];
@@ -67,13 +68,6 @@ int main(void)
     for(int i=0;i<strlen(productions[0].rhs);i++){
         if(isupper(productions[0].rhs[i])){
             continue;
-            // if(strchr(cfg.NonTerminals,productions[0].rhs[i]) == NULL){
-            //     cfg.NonTerminals[strlen(cfg.NonTerminals)] = ',';
-            //     cfg.NonTerminals[strlen(cfg.NonTerminals)+1] = productions[0].rhs[i];
-            // }
-            // else{
-            //     continue;
-            // }
         }
         else{
             cfg.Terminals[strlen(cfg.Terminals)] = productions[0].rhs[i];
@@ -117,7 +111,7 @@ int main(void)
         }
     }
 
-    printf("Start Symbol : %c\n", cfg.Start_Symbol);
+    printf("\nStart Symbol : %c\n", cfg.Start_Symbol);
     printf("Terminals : %s\n", cfg.Terminals);
     printf("Non Terminals : %s\n", cfg.NonTerminals);
     printf("The productions are : \n");
